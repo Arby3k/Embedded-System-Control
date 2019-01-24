@@ -90,6 +90,7 @@ void loop()
   // Hint: If you use DELAY your program will run slowly.
   // Hint: Use millis() to measure elapsed time and toggle LED
   /////////////////////////////////////////
+  digitalWrite(RGBLED_RED_PIN, LOW);
 
   // While there is data in the serial port buffer, continue to process
   while (Serial.available() > 0)
@@ -140,4 +141,3 @@ void loop()
     }
   }
 }
-
