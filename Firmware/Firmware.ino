@@ -30,6 +30,10 @@ int type;
 int channel;
 int value;
 
+int flickerLED = LOW;
+unsigned long timer = 0;
+const long interval = 1500;
+
 #define BAUD_RATE 115200
 
 void setup()
@@ -81,7 +85,8 @@ void setup()
   Serial.print("\n// Protocol: DIRECTION (G/S) TYPE (0=D, 1=A, 2=S) CHANNEL VALUE");
   Serial.print("\n// Example: G 0 0, S 2 1 100");
   Serial.print("\n////////////////////////////////////////////////////////////////////////////////////\n");
-}
+
+ }
 
 void loop()
 {
@@ -90,7 +95,25 @@ void loop()
   // Hint: If you use DELAY your program will run slowly.
   // Hint: Use millis() to measure elapsed time and toggle LED
   /////////////////////////////////////////
-  digitalWrite(RGBLED_RED_PIN, LOW);
+   unsigned long currentMillis = millis();
+
+    if (currentMillis - timer >= interval) {
+    // save the last time you blinked the LED
+    timer = currentMillis;
+
+    // if the LED is off turn it on and vice-versa:
+    if (flickerLED == LOW) {
+      flickerLED = HIGH;
+    } else {
+      flickerLED = LOW;
+    }
+
+    // set the LED with the ledState of the variable:
+    digitalWrite(RED_LED, flickerLED);
+    digitalWrite(RGBLED_RED_PIN, flickerLED); 
+  }
+  
+
 
   // While there is data in the serial port buffer, continue to process
   while (Serial.available() > 0)
