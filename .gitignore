@@ -29,3 +29,6 @@
 *.app
 *.idb
 *.tlog
+
+opencv/
+x64/

@@ -13,11 +13,16 @@
 #include "Server.h"
 #include "Serial.h" // Must include Windows.h after Winsock2.h, so Serial must include after Client/Server
 
+
+
 // OpenCV Include
 #include "opencv.hpp"
 
 // OpenCV Library
 #pragma comment(lib,".\\opencv\\lib\\opencv_world310d.lib")
+#include "CControl.h"
+
+using namespace std;
 
 void process_msg()
 {
@@ -36,10 +41,10 @@ void test_com()
 {
   // Comport class
   Serial com;
-  com.open("COM89");
+  com.open("COM3");
 
   // TX and RX strings
-  std::string tx_str = "G 1 15\n";
+  std::string tx_str = "S 2 0 100\n";
   std::string rx_str;
 
   // temporary storage
@@ -206,8 +211,61 @@ void clientserver()
 
 int main(int argc, char* argv[])
 {
-	test_com();
+	//test_com();
 	//do_image();
 	//do_video ();
-  //clientserver();
+    //clientserver();
+	CControl MSP;
+	char inputSelect;
+
+	do {
+		MSP.printMenu();
+
+		cin >> inputSelect;
+
+		switch (inputSelect) {
+
+		case 'A':
+		case 'a': {
+			MSP.analogRead();
+			break;
+		}
+		case 'D':
+		case 'd': {
+			MSP.DigitalRead();
+			break;
+		}
+		case 'S':
+		case 's': {
+			MSP.servoDance();
+			break;
+		}
+		case 'B':
+		case 'b': {
+			MSP.buttonCount();
+			break;
+		}
+
+		case 'Q':
+		case 'q':
+			cout << "Quiting" << endl;
+			exit(0);
+			break;
+		default:
+			cout << "Command not found\n";
+			inputSelect = 0;
+			break;
+
+		}
+		if (inputSelect != 0) {
+			cout << "Back to Main Menu?(y/n): ";
+			cin >> inputSelect;
+		}
+
+
+	} while (inputSelect == 'Y' || inputSelect == 'y' || inputSelect == 0);
+
+	return 0;
+
+}
 }

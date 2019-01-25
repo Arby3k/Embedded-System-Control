@@ -177,10 +177,10 @@ void loop()
       // IF SET SEND TO SERVO OBJECT
 
       if(((ch == 'G') || (ch == 'g')) && (type ==SERVO)){
-				store = myservo[0].read();
+				store = myservo[channel].read();
 			}
 			else if (((ch == 'S') || (ch == 's')) && (type == SERVO)){
-				myservo[0].write(value);
+				myservo[channel].write(value);
 				store = value;
 			}
 
