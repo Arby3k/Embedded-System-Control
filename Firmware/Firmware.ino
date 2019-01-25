@@ -29,6 +29,7 @@ Servo myservo[4];
 int type;
 int channel;
 int value;
+int store;
 
 int flickerLED = LOW;
 unsigned long timer = 0;
@@ -101,14 +102,14 @@ void loop()
     // save the last time you blinked the LED
     timer = currentMillis;
 
-    // if the LED is off turn it on and vice-versa:
+
     if (flickerLED == LOW) {
       flickerLED = HIGH;
     } else {
       flickerLED = LOW;
     }
 
-    // set the LED with the ledState of the variable:
+    // set the LED wit flickerLED:
     digitalWrite(RED_LED, flickerLED);
     digitalWrite(RGBLED_RED_PIN, flickerLED); 
   }
@@ -140,18 +141,50 @@ void loop()
       /////////////////////////////////////////
       // IF GET DO A DIGITAL READ and return the VALUE
       // IF SET DO A DIGITAL WRITE
+      //Protocol: DIRECTION (G/S) TYPE (0=D, 1=A, 2=S) CHANNEL VALUE
+      if(((ch == 'G') || (ch == 'g')) && (type == DIGITAL)){
+				value = digitalRead(channel);
+			}
+			else if (((ch == 'S') || (ch == 's')) && (type == DIGITAL)){
+				if (value == 1){
+					digitalWrite(channel, HIGH);
+				}
+				else {
+					digitalWrite(channel, LOW);
+			  }
+			}      
+
+      
       
       /////////////////////////////////////////
       // TODO: Get / Set Analog
       /////////////////////////////////////////
       // IF GET DO AN ANALOG READ and return the VALUE
       // IF SET DON'T DO ANYTHING (CONFLICT WITH SERVO)
+
+      if(((ch == 'G') || (ch == 'g')) && (type == ANALOG)){
+				value = analogRead(A_PIN[channel]);
+			}
+			else if (((ch == 'S') || (ch == 's')) && (type == ANALOG)){
+			//nothing
+			}
+			
       
       /////////////////////////////////////////
       // TODO: Get / Set Servo
       /////////////////////////////////////////
       // IF GET RETURN THE LAST SERVO VALUE SENT
       // IF SET SEND TO SERVO OBJECT
+
+      if(((ch == 'G') || (ch == 'g')) && (type ==SERVO)){
+				store = myservo[0].read();
+			}
+			else if (((ch == 'S') || (ch == 's')) && (type == SERVO)){
+				myservo[0].write(value);
+				store = value;
+			}
+
+
 
       // Format and send response
       Serial.print ("A ");
