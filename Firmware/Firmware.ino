@@ -111,7 +111,7 @@ void loop()
 
     // set the LED wit flickerLED:
     digitalWrite(RED_LED, flickerLED);
-    digitalWrite(RGBLED_RED_PIN, flickerLED); 
+    //digitalWrite(RGBLED_RED_PIN, flickerLED); 
   }
   
 

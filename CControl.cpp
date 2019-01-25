@@ -1,20 +1,15 @@
-/** CControl.cpp
-*
-* Simple Controler of things
-*
-* @author Arbab Ahmed
-*
-* @version 0.1 -- 24 January 2019
-*/
-
-
 #include "Stdafx.h"
 #include "CControl.h"
-#include "Client.h"
+//#include "Client.h"
 #include "Server.h"
 #include "Serial.h"
 
+#include <string>
+#include <iostream>
+#include <thread>
+
 #include "opencv.hpp"
+
 
 using namespace std;
 

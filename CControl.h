@@ -1,3 +1,8 @@
+#pragma once
+
+#include "stdafx.h"
+#include "Serial.h"
+
 /** CControl.h
 *
 * A very simple control class
@@ -6,12 +11,6 @@
 *
 * @version 0.1 -- 24 January 2019
 */
-
-#pragma once
-
-#include "stdafx.h"
-
-
 class CControl {
 
 public:
@@ -21,7 +20,9 @@ public:
 	*/
 	void printMenu();
 
-	Serial _com;
+
+
+	Serial _com; 
 
 public:
 	CControl();
@@ -35,9 +36,9 @@ public:
 
 	/** Writes a string of bytes to the serial port to get data according to type selected
 	*
-	* @param type
-	* @param channel
-	* @param result
+	* @param type      DIGITAL ANALOG or SERVO
+	* @param channel   The channel this is on
+	* @param result    The output from this channel
 	*
 	* 
 	*/
@@ -45,9 +46,9 @@ public:
 
 	/** Writes a string of bytes to the serial port to set data according to type selected
 	*
-	* @param type
-	* @param channel
-	* @param result
+	* @param type      DIGITAL ANALOG or SERVO
+	* @param channel   The channel this is on
+	* @param val       The value being set to this channel
 	*
 	*
 	*/
