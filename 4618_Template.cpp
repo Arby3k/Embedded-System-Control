@@ -13,8 +13,6 @@
 #include "Server.h"
 #include "Serial.h" // Must include Windows.h after Winsock2.h, so Serial must include after Client/Server
 
-
-
 // OpenCV Include
 #include "opencv.hpp"
 
@@ -23,6 +21,8 @@
 #include "CControl.h"
 
 using namespace std;
+
+enum type { DIGITAL, ANALOG, SERVO };
 
 void process_msg()
 {
@@ -220,29 +220,35 @@ int main(int argc, char* argv[])
 
 	do {
 		MSP.printMenu();
-
 		cin >> inputSelect;
+
+		int data;
+		int count = 0;
 
 		switch (inputSelect) {
 
 		case 'A':
 		case 'a': {
-			MSP.analogRead();
+			MSP.get_data(ANALOG, 9, data);
+			cout << "ANALOG TEST: CH 9 = " << data << "(" << data * 100 / 1024 << "%)";
+
+			MSP.get_data(ANALOG, 15, data);
+			cout << "CH 15 = " << data << "(" << data * 100 / 1024 << "%)\n";
 			break;
 		}
 		case 'D':
 		case 'd': {
-			MSP.DigitalRead();
+			//MSP.DigitalRead();
 			break;
 		}
 		case 'S':
 		case 's': {
-			MSP.servoDance();
+			//MSP.servoDance();
 			break;
 		}
 		case 'B':
 		case 'b': {
-			MSP.buttonCount();
+			//MSP.buttonCount();
 			break;
 		}
 
@@ -267,5 +273,4 @@ int main(int argc, char* argv[])
 
 	return 0;
 
-}
 }

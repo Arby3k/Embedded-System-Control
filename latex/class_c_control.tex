@@ -1,0 +1,98 @@
+\hypertarget{class_c_control}{}\section{C\+Control Class Reference}
+\label{class_c_control}\index{C\+Control@{C\+Control}}
+
+
+{\ttfamily \#include $<$C\+Control.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_c_control_abb8d08a0530b4f5e85c688c314dd6c2d}{print\+Menu} ()
+\item 
+void \hyperlink{class_c_control_a3d1384d0e1ee2a4a478a798b46457468}{init\+\_\+com} (int comport)
+\item 
+bool \hyperlink{class_c_control_a0bad8e51e54cb6f1e2a7b51d3a3940d3}{get\+\_\+data} (int type, int channel, int \&result)
+\item 
+bool \hyperlink{class_c_control_a13f557815616ef66a8f5dd4b725d8c32}{set\+\_\+data} (int type, int channel, int val)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_c_control_aef87fbcfdcd323b1fdcf41be993e006c}{}\label{class_c_control_aef87fbcfdcd323b1fdcf41be993e006c} 
+\hyperlink{class_serial}{Serial} {\bfseries \+\_\+com}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{_c_control_8h_source}{C\+Control.\+h}
+
+A very simple control class
+
+\begin{DoxyAuthor}{Author}
+Arbab Ahmed
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 -- 24 January 2019 
+\end{DoxyVersion}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_c_control_a0bad8e51e54cb6f1e2a7b51d3a3940d3}{}\label{class_c_control_a0bad8e51e54cb6f1e2a7b51d3a3940d3} 
+\index{C\+Control@{C\+Control}!get\+\_\+data@{get\+\_\+data}}
+\index{get\+\_\+data@{get\+\_\+data}!C\+Control@{C\+Control}}
+\subsubsection{\texorpdfstring{get\+\_\+data()}{get\_data()}}
+{\footnotesize\ttfamily bool C\+Control\+::get\+\_\+data (\begin{DoxyParamCaption}\item[{int}]{type,  }\item[{int}]{channel,  }\item[{int \&}]{result }\end{DoxyParamCaption})}
+
+Writes a string of bytes to the serial port to get data according to type selected
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & \\
+\hline
+{\em channel} & \\
+\hline
+{\em result} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_c_control_a3d1384d0e1ee2a4a478a798b46457468}{}\label{class_c_control_a3d1384d0e1ee2a4a478a798b46457468} 
+\index{C\+Control@{C\+Control}!init\+\_\+com@{init\+\_\+com}}
+\index{init\+\_\+com@{init\+\_\+com}!C\+Control@{C\+Control}}
+\subsubsection{\texorpdfstring{init\+\_\+com()}{init\_com()}}
+{\footnotesize\ttfamily void C\+Control\+::init\+\_\+com (\begin{DoxyParamCaption}\item[{int}]{comport }\end{DoxyParamCaption})}
+
+Initiates comport.
+
+
+\begin{DoxyParams}{Parameters}
+{\em comport} & the comport M\+SP is connected to \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_c_control_abb8d08a0530b4f5e85c688c314dd6c2d}{}\label{class_c_control_abb8d08a0530b4f5e85c688c314dd6c2d} 
+\index{C\+Control@{C\+Control}!print\+Menu@{print\+Menu}}
+\index{print\+Menu@{print\+Menu}!C\+Control@{C\+Control}}
+\subsubsection{\texorpdfstring{print\+Menu()}{printMenu()}}
+{\footnotesize\ttfamily void C\+Control\+::print\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints main menu \hypertarget{class_c_control_a13f557815616ef66a8f5dd4b725d8c32}{}\label{class_c_control_a13f557815616ef66a8f5dd4b725d8c32} 
+\index{C\+Control@{C\+Control}!set\+\_\+data@{set\+\_\+data}}
+\index{set\+\_\+data@{set\+\_\+data}!C\+Control@{C\+Control}}
+\subsubsection{\texorpdfstring{set\+\_\+data()}{set\_data()}}
+{\footnotesize\ttfamily bool C\+Control\+::set\+\_\+data (\begin{DoxyParamCaption}\item[{int}]{type,  }\item[{int}]{channel,  }\item[{int}]{val }\end{DoxyParamCaption})}
+
+Writes a string of bytes to the serial port to set data according to type selected
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & \\
+\hline
+{\em channel} & \\
+\hline
+{\em result} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+Control.\+h\item 
+C\+Control.\+cpp\end{DoxyCompactItemize}
